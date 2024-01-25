@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   get '/health', to: 'health#check'
+  resources :tickers, only: [:index] 
 end

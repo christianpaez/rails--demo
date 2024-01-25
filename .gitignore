@@ -4,5 +4,6 @@
 !/tmp/.keep
 
 config/master.key
+.byebug_history
 
 
