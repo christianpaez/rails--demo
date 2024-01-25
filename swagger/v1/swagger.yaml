@@ -10,6 +10,20 @@ paths:
       responses:
         '200':
           description: successful
+  "/tickers":
+    get:
+      summary: Retrieves tickers
+      parameters:
+      - name: key
+        in: query
+        description: Ticker key
+        schema:
+          type: string
+      responses:
+        '200':
+          description: returns a JSON array with 250 items
+        '422':
+          description: returns a 422 status
 servers:
 - url: http://{defaultHost}
   variables:
