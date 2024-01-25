@@ -24,10 +24,10 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
-          url: 'http://{defaultHost}',
+          url: "#{Rails.env == 'production' ? 'https' : 'http'}://{defaultHost}",
           variables: {
             defaultHost: {
-              default: 'localhost:3000'
+              default: "#{Rails.env == 'production' ? ENV['RAILS_HOST'] : 'localhost:3000' }"
             }
           }
         }
