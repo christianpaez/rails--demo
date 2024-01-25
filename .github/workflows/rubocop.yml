@@ -31,7 +31,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2.0
+          ruby-version: 3.0
           bundler-cache: true
       - name: Install PostgreSQL
         run: sudo apt-get -yqq install libpq-dev
@@ -39,6 +39,7 @@ jobs:
         working-directory: ${{env.api-dir}}
         run: |
           gem install bundler
+          bundle update --bundler
           bundle install --jobs 4 --retry 3
       - name: Setup Database
         working-directory: ${{env.api-dir}}
