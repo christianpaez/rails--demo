@@ -13,7 +13,9 @@ RSpec.describe 'health', type: :request do
             }
           }
         end
-        run_test!
+        run_test! do
+          expect(response).to have_http_status(:success)
+        end
       end
     end
   end
