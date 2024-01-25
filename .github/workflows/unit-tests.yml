@@ -28,7 +28,7 @@ jobs:
         bundle install --jobs 4 --retry 3
 
     - name: Run RuboCop
-      run: bundle exec rubocop
+      run: rubocop
 
     - name: Run RSpec
       run: bundle exec rspec
