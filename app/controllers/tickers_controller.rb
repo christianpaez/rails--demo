@@ -4,7 +4,7 @@ class TickersController < ApplicationController
     begin
       tickers = TickerService.fetch_tickers(params[:key])
       if tickers["results"].nil?
-        render json: { message: "No results for that key!"}  
+        render json: { message: "No results for that key!" }
       else
         ticker_summary = TickerSummaryService.new(tickers["results"]).to_h
         render json: ticker_summary

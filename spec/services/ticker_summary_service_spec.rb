@@ -1,7 +1,10 @@
+# frozen_string_literal: true
 
 require_relative '../../app/services/ticker_summary_service.rb'
 
 describe TickerSummaryService do
+  subject(:ticker_summary_service) { TickerSummaryService.new(api_response["results"]) }
+
   let(:api_response) do
     {
       "results" => [
@@ -12,15 +15,13 @@ describe TickerSummaryService do
     }
   end
 
-  subject { TickerSummaryService.new(api_response["results"]) }
-
   describe '#to_h' do
     it 'returns a hash with the average opening and closing prices rounded to two decimal places' do
-        expected_result = {
-        "price" => { "average" => 128.33, "high" => 143.33, "low" => 113.33 },
-        "volume" => { "average" => 128.33, "high" => 155.0, "low" => 105.0 }
-      }
-        expect(subject.to_h).to eq(expected_result)
+      expected_result = {
+      "price" => { "average" => 128.33, "high" => 143.33, "low" => 113.33 },
+      "volume" => { "average" => 128.33, "high" => 155.0, "low" => 105.0 }
+    }
+      expect(ticker_summary_service.to_h).to eq(expected_result)
     end
   end
 end

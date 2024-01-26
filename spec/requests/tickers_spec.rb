@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 require 'swagger_helper'
 
-
 def random_ticker_key
   "ABCD"
 end
@@ -11,7 +10,7 @@ def valid_ticker_key
 end
 
 def valid_ticker_key_result
-  {"price"=>{"average"=>172.4, "high"=>173.86, "low"=>170.98}, "volume"=>{"average"=>172.47, "high"=>198.2872, "low"=>125.725}}
+  { "price" => { "average" => 172.4, "high" => 173.86, "low" => 170.98 }, "volume" => { "average" => 172.47, "high" => 198.2872, "low" => 125.725 } }
 end
 
 RSpec.describe "Tickers", type: :request do

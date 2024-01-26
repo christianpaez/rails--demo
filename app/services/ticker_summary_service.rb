@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class TickerSummaryService
   ROUND_DIGITS = 2
   OPEN_PROPERTY = "o"
