@@ -1,24 +1,20 @@
-# README
+# Ruby On Rails Ticker API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app was built to parse and format Ticker data from the Polygon API.
 
-Things you may want to cover:
+Tooling:
+- Ruby On Rails(API-only app)
+- Github Actions(Rubocop and Rspec)
+- OpenAPI(Rswag)
 
-* Ruby version
+Live App: [Heroku](https://tranquil-lake-27668-dfbdcf2ac845.herokuapp.com/)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Notes about summaries calculated:
+- Price metrics were calculated in this manner:
+   - "average": Calculated from properties "o" (open) and "c" (close).
+   - "high": Calculated from property "h" (high).
+   - "low": Calculated from property "l" (low).
+- Volume metrics were calculated in this manner:
+    - "average": Calculated from property "vw" (volume-weighted).
+    - "high": Maximum value from property "vw".
+    - "low": Minimum value from property "vw".
