@@ -15,7 +15,15 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
-          url: "#{Rails.env.production? ? 'https' : 'http'}://{defaultHost}",
+          url: "http://{defaultHost}",
+          variables: {
+            defaultHost: {
+              default: ENV['RAILS_HOST'] || 'localhost:3000'
+            }
+          }
+        },
+        {
+          url: "https://{defaultHost}",
           variables: {
             defaultHost: {
               default: ENV['RAILS_HOST'] || 'localhost:3000'

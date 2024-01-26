@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require 'rails_helper'
+require 'swagger_helper'
 
 def random_ticker_key
   "ABCD"
@@ -7,6 +7,10 @@ end
 
 def valid_ticker_key
   "AAPL"
+end
+
+def valid_ticker_key_result
+  { "price" => { "average" => 172.4, "high" => 173.86, "low" => 170.98 }, "volume" => { "average" => 172.47, "high" => 198.2872, "low" => 125.725 } }
 end
 
 RSpec.describe "Tickers", type: :request do
@@ -20,7 +24,7 @@ RSpec.describe "Tickers", type: :request do
         let(:key) { random_ticker_key }
 
         run_test! do
-          expect(JSON.parse(response.body)['resultsCount']).to eq(0)
+          expect(JSON.parse(response.body)['message']).to eq("No results for that key!")
         end
       end
 
@@ -28,7 +32,7 @@ RSpec.describe "Tickers", type: :request do
         let(:key) { valid_ticker_key }
 
         run_test! do
-          expect(JSON.parse(response.body)['resultsCount']).to eq(250)
+          expect(JSON.parse(response.body)).to eq(valid_ticker_key_result)
         end
       end
 
