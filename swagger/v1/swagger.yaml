@@ -28,8 +28,8 @@ servers:
 - url: http://{defaultHost}
   variables:
     defaultHost:
-      default: qwet
+      default: tranquil-lake-27668-dfbdcf2ac845.herokuapp.com
 - url: https://{defaultHost}
   variables:
     defaultHost:
-      default: qwet
+      default: tranquil-lake-27668-dfbdcf2ac845.herokuapp.com
